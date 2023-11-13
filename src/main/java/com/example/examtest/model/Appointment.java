@@ -25,19 +25,22 @@ public class Appointment {
     @Column(name = "appointment_date")
     private LocalDateTime appointmentDate;
 
+    @Column(name = "appointment_duration")
+    private Long appointmentDuration = 0L;
+
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    //@JsonIgnoreProperties("appointment")
+    @JsonIgnoreProperties("appointment")
     private Pet pet;
 
     @ManyToOne
     @JoinColumn(name = "veterinarian_id")
-    //@JsonIgnoreProperties("veterinarian")
+    @JsonIgnoreProperties("appointment")
     private Veterinarian vet;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
-    //@JsonIgnoreProperties("room")
+    //@JsonIgnoreProperties("appointment")
     private Room room;
 
     public Appointment(LocalDateTime appointmentDate) {

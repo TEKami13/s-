@@ -21,7 +21,14 @@ public class Room {
     @Column(name = "room_id")
     private Long roomId = 0L;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @Column(name = "room_name")
+    private String roomName;
+
+    /*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
-    private List<Appointment> appointments = new ArrayList<>();
+    private List<Appointment> appointments = new ArrayList<>();*/
+
+    public Room(String roomName) {
+        this.roomName = roomName;
+    }
 }
