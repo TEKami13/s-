@@ -1,5 +1,6 @@
 package com.example.examtest.repo;
 
+import com.example.examtest.model.Appointment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

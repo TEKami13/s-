@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter @Setter @ToString
 @NoArgsConstructor
 @Entity
@@ -20,6 +23,9 @@ public class Veterinarian {
     @Column(name = "vet_name")
     private String vetName;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "vet_id")
+    private List<Appointment> appointments = new ArrayList<>();
 
     public Veterinarian(String vetName) {
         this.vetName = vetName;

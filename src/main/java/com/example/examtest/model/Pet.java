@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter @Setter @ToString
 @NoArgsConstructor
 @Entity
@@ -27,8 +30,12 @@ public class Pet {
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    @JsonIgnoreProperties("pet")
+    //@JsonIgnoreProperties("pet")
     private Owner owner;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pet_id")
+    private List<Appointment> appointments = new ArrayList<>();
 
     public Pet(String petName, String petType) {
         this.petName = petName;
