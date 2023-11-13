@@ -12,8 +12,8 @@ import java.util.List;
 @Getter @Setter @ToString
 @NoArgsConstructor
 @Entity
-@Table(name = "veterinarian")
-public class Veterinarian {
+@Table(name = "vet")
+public class Vet {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vet_seq_gen")
     @SequenceGenerator(name = "vet_seq_gen", sequenceName = "vet_seq", allocationSize = 1)
@@ -27,7 +27,7 @@ public class Veterinarian {
     @JoinColumn(name = "vet_id")
     private List<Appointment> appointments = new ArrayList<>();
 
-    public Veterinarian(String vetName) {
+    public Vet(String vetName) {
         this.vetName = vetName;
     }
 }

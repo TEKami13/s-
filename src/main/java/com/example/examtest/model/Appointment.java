@@ -34,9 +34,9 @@ public class Appointment {
     private Pet pet;
 
     @ManyToOne
-    @JoinColumn(name = "veterinarian_id")
+    @JoinColumn(name = "vet_id")
     @JsonIgnoreProperties("appointment")
-    private Veterinarian vet;
+    private Vet vet;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
