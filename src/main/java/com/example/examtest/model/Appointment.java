@@ -46,4 +46,9 @@ public class Appointment {
     public Appointment(LocalDateTime appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
+
+    public Appointment(LocalDateTime appointmentDate, Long appointmentDuration) {
+        this.appointmentDate = appointmentDate;
+        this.appointmentDuration = appointmentDuration;
+    }
 }
