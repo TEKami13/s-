@@ -20,6 +20,7 @@ public class AppointmentServiceIntegrationTest {
 
         //assert appointments .size() == 1;
         //assert appointments.get(0).getVet().getVetName().equals("Ted");
+
     }
 
 }
