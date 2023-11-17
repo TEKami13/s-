@@ -19,10 +19,7 @@ public class AppointmentIntegrationTest {
     @Test
     void shouldGetListOfAppointments() throws Exception {
         mockMvc.perform(get("/api/appointment"))
-                .andExpect(status().isOk())
-                .andDo( result -> {
-                    System.out.println(result);
-                });
+                .andExpect(status().isOk());
     }
 
 }

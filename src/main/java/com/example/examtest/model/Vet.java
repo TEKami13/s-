@@ -1,5 +1,6 @@
 package com.example.examtest.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Vet {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "vet_id")
+    @JsonManagedReference
     private List<Appointment> appointments = new ArrayList<>();
 
     public Vet(String vetName) {

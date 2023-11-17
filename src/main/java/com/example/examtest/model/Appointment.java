@@ -1,5 +1,6 @@
 package com.example.examtest.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -31,16 +32,18 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "pet_id")
     @JsonIgnoreProperties("appointment")
+    @JsonBackReference
     private Pet pet;
 
     @ManyToOne
     @JoinColumn(name = "vet_id")
     @JsonIgnoreProperties("appointment")
+    @JsonBackReference
     private Vet vet;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
-    //@JsonIgnoreProperties("appointment")
+    @JsonIgnoreProperties("appointment")
     private Room room;
 
     public Appointment(LocalDateTime appointmentDate) {
