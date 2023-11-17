@@ -1,5 +1,6 @@
 package com.example.examtest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class Vet {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "vet_id")
+    @JsonIgnoreProperties("vet")
     @JsonManagedReference
     private List<Appointment> appointments = new ArrayList<>();
 

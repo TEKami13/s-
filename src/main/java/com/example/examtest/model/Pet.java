@@ -1,5 +1,6 @@
 package com.example.examtest.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -31,10 +32,12 @@ public class Pet {
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    //@JsonIgnoreProperties("pet")
+    @JsonIgnoreProperties("pet")
+    @JsonBackReference
     private Owner owner;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("pet")
     @JoinColumn(name = "pet_id")
     @JsonManagedReference
     private List<Appointment> appointments = new ArrayList<>();

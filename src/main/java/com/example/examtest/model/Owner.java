@@ -1,6 +1,7 @@
 package com.example.examtest.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,6 +34,7 @@ public class Owner {
     @OneToMany(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("owner")
     @JoinColumn(name = "owner_id")
+    @JsonManagedReference
     private List<Pet> pets = new ArrayList<>();
 
     public Owner(String ownerName, String ownerEmail) {
